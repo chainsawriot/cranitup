@@ -1,10 +1,13 @@
 // ==UserScript==
 // @name         cranitup
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Make CRAN more userful.
+// @version      0.1.1
+// @description  try to take over the world!
 // @author       Chung-hong Chan
-// @match        https://*.r-project.org/web/packages/*
+// @include      https://*.r-project.org/web/packages/*
+// @exclude      https://*.r-project.org/web/packages/available_packages_by_name.html
+// @exclude      https://*.r-project.org/web/packages/available_packages_by_date.html
+// @exclude      https://*.r-project.org/web/packages/index.html
 // @grant        none
 // ==/UserScript==
 
