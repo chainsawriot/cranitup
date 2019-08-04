@@ -12,6 +12,6 @@
     'use strict'
     var pkg_name = document.querySelector('h2').textContent.split(':')[0]
     var download_badge = document.createElement("img")
-    download_badge.src = "http://cranlogs.r-pkg.org/badges/last-week/" + pkg_name
+    download_badge.src = "https://cranlogs.r-pkg.org/badges/last-week/" + pkg_name
     document.querySelector('body > h2').after(download_badge)
 })();
