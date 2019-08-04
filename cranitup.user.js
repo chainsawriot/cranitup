@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cranitup
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.4
 // @description  try to take over the world!
 // @author       Chung-hong Chan
 // @include      https://*.r-project.org/web/packages/*
@@ -9,11 +9,15 @@
 // @exclude      https://*.r-project.org/web/packages/available_packages_by_date.html
 // @exclude      https://*.r-project.org/web/packages/index.html
 // @exclude      https://*.r-project.org/web/packages/*/vignettes/*
-// @grant        none
+// @grant        GM_setClipboard
 // ==/UserScript==
 
 (function() {
     'use strict'
+    //var script = document.createElement('script');
+    //script.type = 'text/javascript';
+    //script.src = 'https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js'
+    //document.head.appendChild(script);
     var pkg_name = document.querySelector('h2').textContent.split(':')[0]
     var download_badge = document.createElement("img")
     download_badge.src = "https://cranlogs.r-pkg.org/badges/last-week/" + pkg_name
@@ -23,4 +27,18 @@
     var version_badge = document.createElement("img")
     version_badge.src = "https://www.r-pkg.org/badges/version-ago/" + pkg_name
     version_box.appendChild(version_badge)
+    function copy_install () {
+        var pkg_name = document.querySelector('h2').textContent.split(':')[0]
+        GM_setClipboard ("install.packages(\"" + pkg_name + "\", dependencies = TRUE)");
+    }
+    var copy_button = document.createElement("button")
+    copy_button.autofocus = true
+    copy_button.innerText = "copy"
+    var br = document.createElement("br")
+    copy_button.onclick = copy_install
+    var input_box = document.createElement("input")
+    input_box.type = 'text'
+    input_box.value = "install.packages(\"" + pkg_name + "\", dependencies = TRUE)"
+    input_box.size = 80
+    document.querySelector('p').append(br, br, input_box, copy_button)
 })();
