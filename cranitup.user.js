@@ -10,6 +10,7 @@
 // @exclude      https://*.r-project.org/web/packages/index.html
 // @exclude      https://*.r-project.org/web/packages/*/vignettes/*
 // @grant        GM_setClipboard
+// @grant        GM_addStyle
 // ==/UserScript==
 
 (function() {
@@ -41,4 +42,5 @@
     input_box.value = "install.packages(\"" + pkg_name + "\", dependencies = TRUE)"
     input_box.size = 80
     document.querySelector('p').append(br, br, input_box, copy_button)
+    GM_addStyle("body { background: black }")
 })();
