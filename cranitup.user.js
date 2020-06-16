@@ -42,5 +42,118 @@
     input_box.value = "install.packages(\"" + pkg_name + "\", dependencies = TRUE)"
     input_box.size = 80
     document.querySelector('p').append(br, br, input_box, copy_button)
-    GM_addStyle("body { background: black }")
+    GM_addStyle("
+@media (prefers-color-scheme: light) {
+    :root {
+	--background-color: white;
+	--text-color: black;
+	--link-color: blue;
+	--sec-color: rgb(55%, 55%, 55%);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+	--background-color: #121212;
+	--text-color: white;
+	--link-color: #BB86FC;
+	--sec-color: #3700B7;
+    }
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+h1 {
+    background: var(--background-color);
+    color: var(--sec-color);
+    font-family: monospace;
+    font-size: x-large;
+    text-align: center;
+}
+
+h2 {
+    background: var(--background-color);
+    color: var(--sec-color);
+    font-family: monospace;
+    font-size: large;
+}
+
+h3, h4, h5 {
+    background: var(--background-color);
+    color: var(--sec-color);
+    font-family: monospace;
+}
+
+a {
+    background: var(--background-color);
+    color: var(--link-color);
+}
+
+em.navigation {
+    font-weight: bold;
+    font-style: normal;
+    background: var(--background-color);
+    color: var(--sec-color);
+    font-family: monospace;
+}
+
+img.toplogo {
+    vertical-align: middle;
+}
+
+span.check_ok {
+    color: black;
+}
+
+span.check_ko {
+    color: red;
+}
+
+span.BioC {
+    color: #2C92A1;
+}
+
+span.Ohat {
+    color: #8A4513;
+}
+
+span.Gcode {
+    color: #5B8A00;
+}
+
+span.Rforge {
+    color: #8009AA;
+}
+
+span.GitHub {
+    color: #9F7BE1;
+}
+
+span.acronym {
+    font-size: small;
+}
+
+span.env {
+    font-family: monospace;
+}
+
+span.file {
+    font-family: monospace;
+}
+
+span.option {
+    font-family: monospace;
+}
+
+span.pkg {
+    font-weight: bold;
+}
+
+span.samp {
+    font-family: monospace;
+}
+")
 })();
