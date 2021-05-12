@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         cranitup
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0
+// @version      0.2.1
 // @description  Make CRAN (Comprehensive R Archive Network) more useful
 // @author       Chung-hong Chan
 // @include      https://*.r-project.org/web/packages/*
@@ -32,8 +32,8 @@
     var pkg_name = document.querySelector('h2').textContent.split(':')[0]
     var download_badge = document.createElement("img")
     download_badge.src = "https://cranlogs.r-pkg.org/badges/last-week/" + pkg_name
-    document.querySelector('body > h2').after(download_badge)
-    var version_box = document.querySelector('body > table:nth-child(4) > tbody > tr:nth-child(1) > td:nth-child(2)')
+    document.querySelector('h2').after(download_badge)
+    var version_box = document.querySelector('.container > table:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2)')
     version_box.innerText = ""
     var version_badge = document.createElement("img")
     version_badge.src = "https://www.r-pkg.org/badges/version-ago/" + pkg_name
