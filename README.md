@@ -1,5 +1,11 @@
 # cranitup
 
+# NOTE
+
+I am no longer developing this userscript. All features of this userscript have been merged into Henrik Bengtsson's [R CRAN Booster](https://github.com/HenrikBengtsson/R_CRAN_Booster/tree/develop) [Chrome Extension, Firefox Add-on]. It's easier to use than this (and of course, more powerful).
+
+# Usage
+
 A client-side enhancement to CRAN.
 
 ![](cranitup.gif)
